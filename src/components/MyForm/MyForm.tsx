@@ -1,6 +1,7 @@
 import { Form, Formik } from "formik";
 
 import Input from "../Input";
+import Button from "../Button";
 
 function MyForm() {
   return (
@@ -27,7 +28,7 @@ function MyForm() {
             name="email"
             placeholder="example@jim.com"
           />
-          <button type="submit">Start</button>
+          <Button type="submit" text="Начать" />
         </Form>
       </Formik>
     </>

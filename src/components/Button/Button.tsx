@@ -1,11 +1,29 @@
-import s from './Button.module.scss';
+import clsx from "clsx";
+import React from "react";
+import s from "./Button.module.scss";
 
-function Button() {
+// const buttonType =
+// React.ButtonHTMLAttributes<HTMLButtonElement> & { type: "submit" };
+
+interface IButton {
+  // type: ButtonType;
+  text: string;
+  isBack: boolean;
+}
+
+function Button({ type, text, isBack }: IButton) {
   return (
-    <div className={s.root}>
-      
-    </div>
+    <>
+      <button
+        type={type}
+        className={clsx(s.root, {
+          [s.back]: isBack,
+        })}
+      >
+        {isBack ? "Назад" : text}
+      </button>
+    </>
   );
-};
+}
 
 export default Button;

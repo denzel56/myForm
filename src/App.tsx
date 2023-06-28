@@ -1,5 +1,6 @@
-import Main from './pages/Main'
+
 import './App.scss'
+import MainPage from './pages/MainPage'
 
 
 
@@ -7,7 +8,7 @@ function App() {
 
   return (
     <>
-      <Main />
+      <MainPage />
     </>
   )
 }

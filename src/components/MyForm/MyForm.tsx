@@ -1,35 +1,25 @@
 import { Form, Formik } from "formik";
 
-import Input from "../Input";
-import Button from "../Button";
+type ChildrenType = {
+  children?: JSX.Element | JSX.Element[];
+};
 
-function MyForm() {
+function MyForm({ children }: ChildrenType) {
   return (
     <>
       <Formik
         initialValues={{
           phone: "",
           email: "",
+          nickname: "",
+          name: "",
+          surname: "",
         }}
         onSubmit={(values) => {
           console.log(values);
         }}
       >
-        <Form>
-          <Input
-            id="phone"
-            type="text"
-            name="phone"
-            placeholder="+7(999) 999-99-99"
-          />
-          <Input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="example@jim.com"
-          />
-          <Button type="submit" text="Начать" />
-        </Form>
+        <Form>{children}</Form>
       </Formik>
     </>
   );

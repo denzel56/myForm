@@ -1,3 +1,52 @@
 .root {
+  height: 8px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.08);
+}
 
+.steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -12px;
+
+  .stepItem {
+    display: flex;
+    justify-content: space-around;
+    width: 16px;
+    height: 16px;
+    background-color: #a6a6a6;
+    border-radius: 100%;
+
+    &:first-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #5558f5;
+
+      .point {
+        width: 3.2px;
+        height: 3.2px;
+        background-color: #fff;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+.stepsNum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3px;
+
+  .num {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+
+    &:first-child {
+      color: #5558f5;
+    }
+  }
 }

@@ -1,10 +1,29 @@
-import s from './StepTwo.module.scss';
+import { FunctionComponent } from "react";
+import Input from "../Input";
+import Button from "../Button";
+import s from "./StepTwo.module.scss";
 
-function StepTwo() {
+const StepTwo: FunctionComponent = () => {
   return (
-    <div className={s.root}>
-      
-    </div>
+    <>
+      <Input
+        id="field-nickname"
+        type="text"
+        name="nickname"
+        placeholder="nickname"
+      />
+      <Input id="field-name" type="text" name="name" placeholder="name" />
+      <Input
+        id="field-surname"
+        type="text"
+        name="surname"
+        placeholder="surname"
+      />
+      <div className={s.buttonBlock}>
+        <Button type="button" id="button-back" text="Назад" isBack />
+        <Button type="submit" id="button-next" text="Далее" />
+      </div>
+    </>
   );
 };
 

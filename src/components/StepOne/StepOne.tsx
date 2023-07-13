@@ -1,8 +1,9 @@
+import { FunctionComponent } from "react";
 import Input from "../Input";
 import Button from "../Button";
-// import s from './StepOne.module.scss';
+import s from "./StepOne.module.scss";
 
-function StepOne() {
+const StepOne: FunctionComponent = () => {
   return (
     <>
       <Input
@@ -18,10 +19,12 @@ function StepOne() {
         name="surname"
         placeholder="surname"
       />
-      <Button type="button" id="button-back" text="Назад" isBack />
-      <Button type="submit" id="button-next" text="Далее" />
+      <div className={s.buttonBlock}>
+        <Button type="button" id="button-back" text="Назад" isBack />
+        <Button type="submit" id="button-next" text="Далее" />
+      </div>
     </>
   );
-}
+};
 
 export default StepOne;

@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import clsx from "clsx";
 
 import s from "./Button.module.scss";
@@ -9,7 +10,7 @@ interface IButton {
   isBack?: boolean;
 }
 
-function Button({ type, id, text, isBack }: IButton) {
+const Button: FunctionComponent<IButton> = ({ type, id, text, isBack }) => {
   return (
     <>
       <button
@@ -23,6 +24,6 @@ function Button({ type, id, text, isBack }: IButton) {
       </button>
     </>
   );
-}
+};
 
 export default Button;

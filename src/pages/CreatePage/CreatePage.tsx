@@ -1,13 +1,14 @@
+import { FunctionComponent, useState } from "react";
 import MyForm from "../../components/MyForm";
 import StepOne from "../../components/StepOne";
 import StepTwo from "../../components/StepTwo";
 import StepThree from "../../components/StepThree";
 import Steps from "../../components/Steps";
 
-// import s from "./CreatePage.module.scss";
+import s from "./CreatePage.module.scss";
 
-function CreatePage() {
-  const currentStep: string = "";
+const CreatePage: FunctionComponent = () => {
+  const [currentStep, setCurrentStep] = useState("one");
 
   const showCurrentStep = () => {
     switch (currentStep) {
@@ -23,11 +24,11 @@ function CreatePage() {
   };
 
   return (
-    <>
-      <Steps />
+    <div className={s.root}>
+      <Steps currentStep={currentStep} />
       <MyForm>{showCurrentStep()}</MyForm>
-    </>
+    </div>
   );
-}
+};
 
 export default CreatePage;

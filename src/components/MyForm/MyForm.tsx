@@ -1,10 +1,11 @@
 import { Form, Formik } from "formik";
+import { FunctionComponent } from "react";
 
 type ChildrenType = {
   children?: JSX.Element | JSX.Element[];
 };
 
-function MyForm({ children }: ChildrenType) {
+const MyForm: FunctionComponent<ChildrenType> = ({ children }) => {
   return (
     <>
       <Formik
@@ -23,6 +24,6 @@ function MyForm({ children }: ChildrenType) {
       </Formik>
     </>
   );
-}
+};
 
 export default MyForm;

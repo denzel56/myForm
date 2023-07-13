@@ -1,3 +1,4 @@
+import { FunctionComponent } from "react";
 import { Field } from "formik";
 import s from "./Input.module.scss";
 
@@ -8,7 +9,7 @@ interface IInput {
   placeholder: string;
 }
 
-function Input({ id, type, name, placeholder }: IInput) {
+const Input: FunctionComponent<IInput> = ({ id, type, name, placeholder }) => {
   return (
     <div className={s.root}>
       <label htmlFor={id} className={s.label}>
@@ -22,6 +23,6 @@ function Input({ id, type, name, placeholder }: IInput) {
       />
     </div>
   );
-}
+};
 
 export default Input;

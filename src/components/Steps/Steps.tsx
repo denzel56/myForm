@@ -1,15 +1,45 @@
+import { FunctionComponent } from "react";
+import DoneIcon from "./assets/Vector.svg";
+import clsx from "clsx";
+
 import s from "./Steps.module.scss";
 
-function Steps() {
+type TStep = {
+  currentStep?: string;
+};
+
+const Steps: FunctionComponent<TStep> = ({ currentStep }) => {
   return (
     <>
-      <div className={s.root} />
+      <div
+        className={clsx(s.root, {
+          [s.stepTwo]: currentStep === "two",
+          [s.stepThree]: currentStep === "three",
+        })}
+      />
       <div className={s.steps}>
-        <div className={s.stepItem}>
-          <div className={s.point} />
+        <div className={clsx(s.stepItem, s.activeStep)}>
+          {currentStep !== "one" ? (
+            <img src={DoneIcon} alt="done" />
+          ) : (
+            <div className={s.point} />
+          )}
         </div>
-        <div className={s.stepItem} />
-        <div className={s.stepItem} />
+        <div
+          className={clsx(s.stepItem, {
+            [s.activeStep]: currentStep !== "one  ",
+          })}
+        >
+          {currentStep === "two" && <div className={s.point} />}
+          {currentStep === "three" && <img src={DoneIcon} alt="done" />}
+        </div>
+        <div
+          className={clsx(s.stepItem, {
+            [s.activeStep]: currentStep === "three",
+          })}
+        >
+          {currentStep === "three" && <div className={s.point} />}
+        </div>
       </div>
       <div className={s.stepsNum}>
         <div className={s.num}>1</div>
@@ -18,6 +48,6 @@ function Steps() {
       </div>
     </>
   );
-}
+};
 
 export default Steps;

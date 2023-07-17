@@ -8,9 +8,19 @@ interface IButton {
   id?: string;
   text: string;
   isBack?: boolean;
+  onClick?: VoidFunction;
 }
 
-const Button: FunctionComponent<IButton> = ({ type, id, text, isBack }) => {
+const Button: FunctionComponent<IButton> = ({
+  type,
+  id,
+  text,
+  isBack,
+  onClick,
+}) => {
+  const handleClick = () => {
+    onClick && onClick();
+  };
   return (
     <>
       <button
@@ -19,6 +29,7 @@ const Button: FunctionComponent<IButton> = ({ type, id, text, isBack }) => {
         className={clsx(s.root, {
           [s.back]: isBack,
         })}
+        onClick={handleClick}
       >
         {isBack ? "Назад" : text}
       </button>

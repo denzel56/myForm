@@ -1,14 +1,14 @@
 import { FunctionComponent, useState } from "react";
 import MyForm from "../../components/MyForm";
 import StepOne from "../../components/StepOne";
-import StepTwo from "../../components/StepTwo";
 import StepThree from "../../components/StepThree";
+import StepTwo from "../../components/StepTwo";
 import Steps from "../../components/Steps";
 
 import s from "./CreatePage.module.scss";
 
 const CreatePage: FunctionComponent = () => {
-  const [currentStep, setCurrentStep] = useState("one");
+  const [currentStep] = useState("one");
 
   const showCurrentStep = () => {
     switch (currentStep) {

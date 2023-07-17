@@ -1,9 +1,16 @@
 import { FunctionComponent } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "../Input";
 import Button from "../Button";
 import s from "./StepOne.module.scss";
 
 const StepOne: FunctionComponent = () => {
+  const navigate = useNavigate();
+
+  const handleClickBack = (): void => {
+    navigate("/");
+  };
+
   return (
     <>
       <Input
@@ -20,7 +27,13 @@ const StepOne: FunctionComponent = () => {
         placeholder="surname"
       />
       <div className={s.buttonBlock}>
-        <Button type="button" id="button-back" text="Назад" isBack />
+        <Button
+          type="button"
+          id="button-back"
+          text="Назад"
+          isBack
+          onClick={handleClickBack}
+        />
         <Button type="submit" id="button-next" text="Далее" />
       </div>
     </>

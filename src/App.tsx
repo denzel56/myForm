@@ -1,9 +1,12 @@
+import { FunctionComponent } from "react";
 import { Route, Routes } from "react-router-dom";
+
 import MainPage from "./pages/MainPage";
 import CreatePage from "./pages/CreatePage";
+
 import "./App.scss";
 
-function App() {
+const App: FunctionComponent = () => {
   return (
     <>
       <Routes>
@@ -12,6 +15,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;

@@ -5,7 +5,7 @@ import clsx from "clsx";
 import s from "./Steps.module.scss";
 
 type TStep = {
-  currentStep?: string;
+  currentStep: string;
 };
 
 const Steps: FunctionComponent<TStep> = ({ currentStep }) => {
@@ -27,7 +27,7 @@ const Steps: FunctionComponent<TStep> = ({ currentStep }) => {
         </div>
         <div
           className={clsx(s.stepItem, {
-            [s.activeStep]: currentStep !== "one  ",
+            [s.activeStep]: currentStep !== "one",
           })}
         >
           {currentStep === "two" && <div className={s.point} />}

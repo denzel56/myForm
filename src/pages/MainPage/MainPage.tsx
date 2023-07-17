@@ -1,9 +1,16 @@
+import { FunctionComponent } from "react";
+import { useNavigate } from "react-router-dom";
 import MyForm from "../../components/MyForm";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import s from "./MainPage.module.scss";
 
-function MainPage() {
+const MainPage: FunctionComponent = () => {
+  const navigate = useNavigate();
+  const handleClickStart = (): void => {
+    navigate("/create");
+  };
+
   return (
     <>
       <div className={s.root}>
@@ -20,11 +27,16 @@ function MainPage() {
             name="email"
             placeholder="example@jim.com"
           />
-          <Button type="submit" id="button-start" text="Начать" />
+          <Button
+            type="submit"
+            id="button-start"
+            text="Начать"
+            onClick={handleClickStart}
+          />
         </MyForm>
       </div>
     </>
   );
-}
+};
 
 export default MainPage;

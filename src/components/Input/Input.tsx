@@ -16,6 +16,7 @@ const Input: FunctionComponent<IInput> = ({ id, type, name, placeholder }) => {
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </label>
       <Field
+        id={id}
         type={type}
         name={name}
         placeholder={placeholder}

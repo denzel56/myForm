@@ -3,12 +3,20 @@ import { useNavigate } from "react-router-dom";
 import Input from "../Input";
 import Button from "../Button";
 import s from "./StepOne.module.scss";
+import { useDispatch } from "react-redux";
+import { setCurrentStep } from "../../store/stepSlice";
 
 const StepOne: FunctionComponent = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleClickBack = (): void => {
     navigate("/");
+    dispatch(setCurrentStep("one"));
+  };
+
+  const handleClickNext = (): void => {
+    dispatch(setCurrentStep("two"));
   };
 
   return (
@@ -34,7 +42,12 @@ const StepOne: FunctionComponent = () => {
           isBack
           onClick={handleClickBack}
         />
-        <Button type="submit" id="button-next" text="Далее" />
+        <Button
+          type="submit"
+          id="button-next"
+          text="Далее"
+          onClick={handleClickNext}
+        />
       </div>
     </>
   );

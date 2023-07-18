@@ -1,4 +1,5 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
+import { useSelector } from "react-redux";
 import MyForm from "../../components/MyForm";
 import StepOne from "../../components/StepOne";
 import StepThree from "../../components/StepThree";
@@ -6,9 +7,10 @@ import StepTwo from "../../components/StepTwo";
 import Steps from "../../components/Steps";
 
 import s from "./CreatePage.module.scss";
+import { currentStepSelector } from "../../store/stepSlice";
 
 const CreatePage: FunctionComponent = () => {
-  const [currentStep] = useState("one");
+  const currentStep = useSelector(currentStepSelector);
 
   const showCurrentStep = () => {
     switch (currentStep) {

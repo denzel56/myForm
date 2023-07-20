@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentStep } from "../../store/stepSlice";
-import Input from "../Input";
+
 import Button from "../Button";
 import s from "./StepTwo.module.scss";
 
@@ -17,20 +17,6 @@ const StepTwo: FunctionComponent = () => {
   };
   return (
     <>
-      <h2>Step Two</h2>
-      <Input
-        id="field-nickname"
-        type="text"
-        name="nickname"
-        placeholder="nickname"
-      />
-      <Input id="field-name" type="text" name="name" placeholder="name" />
-      <Input
-        id="field-surname"
-        type="text"
-        name="surname"
-        placeholder="surname"
-      />
       <div className={s.buttonBlock}>
         <Button
           type="button"

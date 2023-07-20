@@ -1,10 +1,13 @@
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "../Input";
-import Button from "../Button";
-import s from "./StepOne.module.scss";
 import { useDispatch } from "react-redux";
 import { setCurrentStep } from "../../store/stepSlice";
+
+import CustomSelect from "../CustomSelect";
+import Input from "../Input";
+import Button from "../Button";
+
+import s from "./StepOne.module.scss";
 
 const StepOne: FunctionComponent = () => {
   const navigate = useNavigate();
@@ -34,6 +37,7 @@ const StepOne: FunctionComponent = () => {
         name="surname"
         placeholder="surname"
       />
+      <CustomSelect />
       <div className={s.buttonBlock}>
         <Button
           type="button"

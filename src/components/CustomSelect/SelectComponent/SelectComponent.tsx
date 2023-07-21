@@ -1,7 +1,7 @@
 import {
   FunctionComponent,
-  MouseEvent,
   MouseEventHandler,
+  ReactNode,
   useEffect,
   useRef,
   useState,
@@ -11,6 +11,7 @@ import OptionComponent from "./OptionComponent";
 import s from "./SelectComponent.module.scss";
 
 type SelectProps = {
+  label: string;
   selected: Option | null;
   options: Option[];
   placeholder?: string;
@@ -24,6 +25,7 @@ type Option = {
 };
 
 const SelectComponent: FunctionComponent<SelectProps> = ({
+  label,
   options,
   selected,
   placeholder,
@@ -55,29 +57,43 @@ const SelectComponent: FunctionComponent<SelectProps> = ({
     onChange?.(value);
   };
 
-  const handleClickPlaceholder: MouseEventHandler<HTMLDivElement> = () => {
+  const handleClickSelect: MouseEventHandler<HTMLDivElement> = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   return (
     <>
-      <div ref={ref} className={s.root} data-is-active={isOpen}>
+      <div className={s.root}>
+        <div className={s.label}>{label}</div>
         <div
-          data-selected={!!selected?.value}
-          onClick={handleClickPlaceholder}
-          tabIndex={0}
+          ref={ref}
+          className={s.field}
+          data-is-active={isOpen}
+          onClick={handleClickSelect}
         >
-          {selected?.title || placeholder}
+          {selected?.title ? (
+            <div data-selected={!!selected?.value} tabIndex={0}>
+              {selected?.title}
+            </div>
+          ) : (
+            <div
+              className={s.placeholder}
+              data-selected={!!selected?.value}
+              tabIndex={0}
+            >
+              {placeholder}
+            </div>
+          )}
         </div>
         {isOpen && (
-          <ul>
-            {options.map((item) => {
+          <ul className={s.list}>
+            {options.map<ReactNode>((item: Option) => (
               <OptionComponent
                 key={item.value}
                 option={item}
                 onClick={handleClickOption}
-              />;
-            })}
+              />
+            ))}
           </ul>
         )}
       </div>

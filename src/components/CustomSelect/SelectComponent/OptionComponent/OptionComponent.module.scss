@@ -1,3 +1,13 @@
 .root {
+  margin: 0;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  list-style-type: none;
 
+  &:hover {
+    cursor: pointer;
+    background-color: rgba($color: #5558fa, $alpha: 0.2);
+  }
 }

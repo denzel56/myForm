@@ -14,10 +14,11 @@ const CustomSelect: FunctionComponent = () => {
 
   return (
     <SelectComponent
+      label="Sex"
       options={options}
       selected={selectedValue || null}
       onChange={handleSelectValue}
-      placeholder="Укажите ваш пол"
+      placeholder="Не выбрано"
     />
   );
 };

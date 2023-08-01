@@ -10,11 +10,10 @@ const MyForm: FunctionComponent<ChildrenType> = ({ children }) => {
     <>
       <Formik
         initialValues={{
-          phone: "",
-          email: "",
           nickname: "",
           name: "",
           surname: "",
+          advantages: [""],
         }}
         onSubmit={(values) => {
           console.log(values);

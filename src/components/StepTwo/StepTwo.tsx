@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentStep } from "../../store/stepSlice";
 
+import ArrayInput from "../ArrayInput";
 import Button from "../Button";
 import s from "./StepTwo.module.scss";
 
@@ -17,6 +18,15 @@ const StepTwo: FunctionComponent = () => {
   };
   return (
     <>
+      <div className="advantages">
+        <ArrayInput
+          label="advantages"
+          name="advantages"
+          id="advantages-item"
+          placeholder="advantages"
+        />
+      </div>
+
       <div className={s.buttonBlock}>
         <Button
           type="button"
@@ -26,7 +36,7 @@ const StepTwo: FunctionComponent = () => {
           onClick={handleClickBack}
         />
         <Button
-          type="submit"
+          type="button"
           id="button-next"
           text="Далее"
           onClick={handleClickNext}

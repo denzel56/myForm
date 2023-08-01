@@ -28,13 +28,21 @@ const StepOne: FunctionComponent = () => {
         id="field-nickname"
         type="text"
         name="nickname"
+        isLabel
         placeholder="nickname"
       />
-      <Input id="field-name" type="text" name="name" placeholder="name" />
+      <Input
+        id="field-name"
+        type="text"
+        name="name"
+        isLabel
+        placeholder="name"
+      />
       <Input
         id="field-surname"
         type="text"
         name="surname"
+        isLabel
         placeholder="surname"
       />
       <CustomSelect />
@@ -47,7 +55,7 @@ const StepOne: FunctionComponent = () => {
           onClick={handleClickBack}
         />
         <Button
-          type="submit"
+          type="button"
           id="button-next"
           text="Далее"
           onClick={handleClickNext}

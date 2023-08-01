@@ -1,0 +1,22 @@
+.label {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.fieldWrap {
+  display: flex;
+  align-items: center;
+
+  .removeIcon {
+    width: 20px;
+    margin: 8px 0 0 8px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.addButton {
+  margin-top: 8px;
+}

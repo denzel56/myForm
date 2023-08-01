@@ -1,5 +1,5 @@
-import { FunctionComponent } from "react";
 import clsx from "clsx";
+import { FunctionComponent } from "react";
 
 import s from "./Button.module.scss";
 
@@ -31,7 +31,7 @@ const Button: FunctionComponent<IButton> = ({
         })}
         onClick={handleClick}
       >
-        {isBack ? "Назад" : text}
+        {text}
       </button>
     </>
   );

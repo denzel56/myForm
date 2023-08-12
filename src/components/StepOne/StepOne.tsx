@@ -8,10 +8,12 @@ import Input from "../Input";
 import Button from "../Button";
 
 import s from "./StepOne.module.scss";
+import { FormikValues, useFormikContext } from "formik";
 
 const StepOne: FunctionComponent = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { values } = useFormikContext<FormikValues>();
 
   const handleClickBack = (): void => {
     navigate("/");
@@ -30,6 +32,7 @@ const StepOne: FunctionComponent = () => {
         name="nickname"
         isLabel
         placeholder="nickname"
+        value={values.nickname}
       />
       <Input
         id="field-name"
@@ -37,6 +40,7 @@ const StepOne: FunctionComponent = () => {
         name="name"
         isLabel
         placeholder="name"
+        value={values.name}
       />
       <Input
         id="field-surname"
@@ -44,6 +48,7 @@ const StepOne: FunctionComponent = () => {
         name="surname"
         isLabel
         placeholder="surname"
+        value={values.surname}
       />
       <CustomSelect />
       <div className={s.buttonBlock}>

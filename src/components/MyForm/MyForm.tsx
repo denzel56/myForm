@@ -13,6 +13,7 @@ const MyForm: FunctionComponent<ChildrenType> = ({ children }) => {
           nickname: "",
           name: "",
           surname: "",
+          sex: "",
           advantages: [""],
         }}
         onSubmit={(values) => {

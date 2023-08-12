@@ -6,9 +6,12 @@ import {
   useRef,
   useState,
 } from "react";
+import clsx from "clsx";
 import OptionComponent from "./OptionComponent";
+import ArrowDown from "./assets/ChevronDown.svg";
 
 import s from "./SelectComponent.module.scss";
+import { useFormikContext } from "formik";
 
 type SelectProps = {
   label: string;
@@ -34,6 +37,7 @@ const SelectComponent: FunctionComponent<SelectProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
+  const { setFieldValue } = useFormikContext();
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
@@ -55,6 +59,7 @@ const SelectComponent: FunctionComponent<SelectProps> = ({
   const handleClickOption = (value: Option["value"]): void => {
     setIsOpen(false);
     onChange?.(value);
+    setFieldValue("sex", value);
   };
 
   const handleClickSelect: MouseEventHandler<HTMLDivElement> = () => {
@@ -84,6 +89,13 @@ const SelectComponent: FunctionComponent<SelectProps> = ({
               {placeholder}
             </div>
           )}
+          <img
+            src={ArrowDown}
+            alt="arrow"
+            className={clsx({
+              [s.arrow]: isOpen,
+            })}
+          />
         </div>
         {isOpen && (
           <ul className={s.list}>

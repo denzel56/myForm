@@ -1,7 +1,6 @@
-import { FunctionComponent, ReactNode, useState } from "react";
+import { FunctionComponent } from "react";
+import { Field, FieldArray, FormikValues, useFormikContext } from "formik";
 
-import Button from "../Button";
-import Input from "../Input";
 import RemoveIcon from "./assets/Remove.svg";
 
 import s from "./ArrayInput.module.scss";
@@ -13,52 +12,43 @@ interface IArrayInput {
   placeholder: string;
 }
 
-const ArrayInput: FunctionComponent<IArrayInput> = ({
-  label,
-  // name,
-  id,
-  placeholder,
-}) => {
-  const [fieldArray, setFieldArray] = useState([""]);
+const ArrayInput: FunctionComponent<IArrayInput> = ({ label, name }) => {
+  const { values } = useFormikContext<FormikValues>();
 
-  const handleClickAdd = (): void => {
-    setFieldArray((prevState): string[] => {
-      const newArray = [...prevState, ""];
-
-      return newArray;
-    });
-    // console.log(fieldArray);
-  };
   return (
     <>
       <div className={s.label}>
         {label && label.charAt(0).toUpperCase() + label.slice(1)}
       </div>
       <div>
-        {fieldArray.map<ReactNode>((item: any, index: number) => {
-          const uid = self.crypto.randomUUID().slice(0, 8);
-          return (
-            <div key={uid} className={s.fieldWrap}>
-              <Input
-                type="text"
-                id={`${id}-${index + 1}`}
-                placeholder={placeholder}
-              />
-              <img src={RemoveIcon} alt="trash icon" className={s.removeIcon} />
-            </div>
-          );
-        })}
-        <div className={s.addButton}>
-          <Button
-            type="button"
-            id="button-add"
-            text="+"
-            isBack
-            onClick={handleClickAdd}
-          />
-        </div>
+        <FieldArray
+          name={name}
+          render={(arrayHelpers) => (
+            <>
+              {values[name].map((_item: any, index: number) => (
+                <div key={index} className={s.fieldWrap}>
+                  <Field name={`advantages.${index}`} className={s.field} />
+                  <img
+                    src={RemoveIcon}
+                    alt="remove icon"
+                    className={s.removeIcon}
+                    onClick={() => arrayHelpers.remove(index)}
+                  />
+                </div>
+              ))}
+              <div>
+                <button
+                  type="button"
+                  className={s.addButton}
+                  onClick={() => arrayHelpers.push("")}
+                >
+                  +
+                </button>
+              </div>
+            </>
+          )}
+        />
       </div>
-      {console.log(fieldArray)}
     </>
   );
 };

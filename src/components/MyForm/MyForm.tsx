@@ -15,6 +15,8 @@ const MyForm: FunctionComponent<ChildrenType> = ({ children }) => {
           surname: "",
           sex: "",
           advantages: [""],
+          checked: [],
+          picked: "",
         }}
         onSubmit={(values) => {
           console.log(values);

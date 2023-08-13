@@ -5,6 +5,8 @@ import { setCurrentStep } from "../../store/stepSlice";
 import ArrayInput from "../ArrayInput";
 import Button from "../Button";
 import s from "./StepTwo.module.scss";
+import CheckboxGroup from "../CheckboxGroup";
+import RadioGroup from "../RadioGroup";
 
 const StepTwo: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -26,7 +28,8 @@ const StepTwo: FunctionComponent = () => {
           placeholder="advantages"
         />
       </div>
-
+      <CheckboxGroup label="checkbox group" />
+      <RadioGroup label="radio group" />
       <div className={s.buttonBlock}>
         <Button
           type="button"
